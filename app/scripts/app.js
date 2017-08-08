@@ -18,7 +18,12 @@ angular
     'ngTouch',
     'mgcrea.ngStrap'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $typeaheadProvider) {
+    angular.extend($typeaheadProvider.defaults, {
+              animation: 'am-flip-x',
+              minLength: 2,
+              limit: 8
+            });
     $routeProvider
       .when('/dashboard', {
         templateUrl: 'views/dashboard.html',
@@ -28,9 +33,10 @@ angular
       .when('/watchlist/:listId', {
         templateUrl: 'views/watchlist.html',
         controller: 'WatchlistCtrl',
-        controllerAs: 'watchlist'
+        controllerAs: 'wlist'
       })
       .otherwise({
         redirectTo: '/dashboard'
       });
   });
+_.contains = _.includes;
