@@ -58,7 +58,7 @@
         }
       }, function (data) {
         console.log(data);
-      }).catch(err => {
+      }).catch(function(err) {
         _.each(stocks, function(stock) {
           stock.lastPrice = parseFloat(_.random(0, 200.5)) ;
           stock.change = 10 + _.random(-0.5, 0.5);
